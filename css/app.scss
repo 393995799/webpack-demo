@@ -1,0 +1,32 @@
+// 写个mixin只为了证明sass-loader是有用的
+@mixin columnizer($width-left, $width-right) {
+  &:first-child {
+    width: $width-left;
+  }
+
+  &:last-child {
+    width: $width-right;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  margin: 30px auto;
+  width: 600px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+li.todo {
+  margin: 20px;
+
+  & > span {
+    display: inline-block;
+    @include columnizer(30%, 70%);
+  }
+}
